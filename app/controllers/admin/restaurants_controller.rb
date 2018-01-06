@@ -3,7 +3,7 @@ class Admin::RestaurantsController < ApplicationController
   
   before_action :authenticate_user!
   before_action :authenticate_admin
-  
+  before_action :set_restaurant, :only => [:show, :edit, :update, :destroy]
 
   def index
     @restaurants = Restaurant.all
@@ -24,31 +24,33 @@ class Admin::RestaurantsController < ApplicationController
     end
   end
   
-  def show
-    @restaurant = Restaurant.find(params[:id])
-  end
-
-  def edit
-    @restaurant = Restaurant.find(params[:id])
-  end
+ 
 
   def update
-    @restaurant = Restaurant.find(params[:id])
+
     if @restaurant.update_attributes(restaurant_params)
+      flash[:notice] = " Update successfully!"
       redirect_to admin_restaurants_path
     else
+      flash.now[:alert] = "Error: Fail to update"
       render :edit
     end
   end
   def destroy
-    @restaurant = Restaurant.find(params[:id])
+
     @restaurant.delete
+    flash[:notice]= "picture deleted"
     redirect_to admin_restaurants_path
+
   end
   private
 
   def restaurant_params
     params.require(:restaurant).permit(:name, :tel, :address, :opening_hours, :description)
+  end
+
+  def set_restaurant
+    @restaurant = Restaurant.find(params[:id])
   end
 
 end

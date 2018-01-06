@@ -1,3 +1,9 @@
-<%= @restaurant.name %>
-<%= @restaurant.tel %>
-<%= @restaurant.description %>
+<h1><%= @restaurant.name %><h1>
+
+Tel:<%= @restaurant.tel %><br>
+Address:<%= @restaurant.address %><br>
+Description:<%= @restaurant.description %><br>
+
+<br>
+
+<%= link_to "Back to Index",admin_restaurants_path %>
