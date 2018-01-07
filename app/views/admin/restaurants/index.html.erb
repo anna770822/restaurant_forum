@@ -2,6 +2,7 @@
 <ul>
 <% @restaurants.each do |restaurant|%>
 <li>
+<%= image_tag restaurant.image, width: "300px" %>
 <%= restaurant.name  %>
 <%= link_to 'Show', admin_restaurant_path(restaurant) %>
 <%= link_to 'Edit', edit_admin_restaurant_path(restaurant)%>

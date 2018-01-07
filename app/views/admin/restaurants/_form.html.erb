@@ -1,18 +1,24 @@
 <%= form_for [:admin, @restaurant] do |f| %>
-  <%= f.label :name %>
+
+
+  <%= f.label :name, "Name"%>
   <%= f.text_field :name %>
 
-  <%= f.label :tel %>
+  <%= f.label :tel, "TEL" %>
   <%= f.text_field :tel %>
 
-  <%= f.label :address %>
+  <%= f.label :address, "Address" %>
   <%= f.text_field :address %>
 
-  <%= f.label :opening_hours %>
+  <%= f.label :opening_hours, "Opening_hours"%>
   <%= f.text_field :opening_hours %>
 
-  <%= f.label :description %> 
+  <%= f.label :description, "Description" %> 
   <%= f.text_area :description %>
+
+  <%= f.label :image, "Photo" %>
+  <%= image_tag @restaurant.image, width: "300px" if @restaurant.image? %>
+  <%= f.file_field :image %>
 
   <%= f.submit %>
 <% end %>
