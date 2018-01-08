@@ -1,18 +1,33 @@
 <h3>Restaurant Back End : Admin</h3>
-<ul>
-<% @restaurants.each do |restaurant|%>
-<li>
-<%= image_tag restaurant.image, width: "300px" %>
-<%= restaurant.name  %>
-<%= link_to 'Show', admin_restaurant_path(restaurant) %>
-<%= link_to 'Edit', edit_admin_restaurant_path(restaurant)%>
-<%= link_to 'Delete', admin_restaurant_path(restaurant), method: :delete, data:{confirm:'Are you sure?'}%>
-<li>
-<%   end %>
-<ul>
+<div class="container">
+  <table class="table table-striped table-hover text-center">
+    <tr>
+      <td> # </td>
+      <td>Picture</td>
+      <td>Name</td>
+      <td>Show</td>
+      <td>Edit</td>
+      <td>Delete</td>
+    </tr>
+    <% i = 1 %>
+    <% @restaurants.each do |restaurant|%>
+    <tr>
+      <td><%= i %></td>
+      <td><%= image_tag restaurant.image, width: "300px" %></td>
+      <td><%= restaurant.name  %></td>
+      <td><%= link_to 'Show', admin_restaurant_path(restaurant) %></td>
+      <td><%= link_to 'Edit', edit_admin_restaurant_path(restaurant)%></td>
+      <td><%= link_to 'Delete', admin_restaurant_path(restaurant), method: :delete, data:{confirm:'Are you sure?'}%></td>
+      <% i +=1 %>
+    <% end %>
 
-  <%= paginate @restaurants %>
+    </tr>
+  </table>
+</div>
+<div class="container">
+<%= paginate @restaurants %>
 
 <%= link_to 'New Restaurant', new_admin_restaurant_path %>
+</div>
 
 
