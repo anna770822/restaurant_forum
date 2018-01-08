@@ -1,8 +1,11 @@
 <h1><%= @restaurant.name %><h1>
+<div class="well well-lg">
 <%= image_tag @restaurant.image, width: "300px" %>
 <%= @restaurant.tel %><br>
 <%= @restaurant.address %><br>
-<%= @restaurant.description %><br>
+</div>
+<div class="well well-lg"><%= @restaurant.description %></div>
+<br>
 
 <br>
 
