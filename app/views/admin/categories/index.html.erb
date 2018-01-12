@@ -1,3 +1,22 @@
+
+
+<div>
+  <%= link_to 'Restaurant', admin_restaurants_path %> 
+  <%= link_to 'Categories', admin_categories_path %>
+</div>
+<div class="form-inline">
+  <div class="form-group">
+    <%= form_for [:admin, @category] do |f| %>
+      <%= f.text_field :name, class: "form-control", placeholder: "New Category" %>
+      <%= f.submit class: "btn btn-default" %>
+        <% if @category.errors.any? %>
+          <%= @category.errors.full_messages.to_sentence%>
+        <% end %>
+    <% end%>
+
+  </div>
+</div>
+
 <table class="table table-striped table-hover text-center container_table">
   <tr>
     <td>#</td>
