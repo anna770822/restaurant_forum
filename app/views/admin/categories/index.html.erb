@@ -22,10 +22,13 @@
   <tr>
     <td>#</td>
     <td>Category</td>
+    <td>Edit</td>
   </tr>
   <% @categories.each do |category| %>
   <tr>
     <td><%= category.id  %></td>
     <td><%= category.name %></td>
+    <td><%= link_to "Edit", admin_categories_path(id: category.id) %>
   </tr>
+
 <% end %>
