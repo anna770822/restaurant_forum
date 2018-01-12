@@ -1,6 +1,5 @@
-Class Admin::Basecontroller < ApplicaionController
+class Admin::BaseController < ApplicationController
 
-  
   before_action :authenticate_admin
 
   private
