@@ -13,7 +13,12 @@
 .container_table .container_table_cell{padding-top:50px;}
 .container_table .container_table_button{padding-top:45px;}
 
-
-.restaurant-container .restaurant-content{;padding: 40px 50px;text-align:center;}
-.restaurant-description{text-align:center;}
+.content{ float:left;
+    width: 50%;}
+.clearfix::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.restaurant-description{height:430px;}
 .edit-btn{text-align:center;}

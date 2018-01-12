@@ -1,40 +1,42 @@
 
+<div class="container">
+  <div>
+    <%= link_to 'Restaurant', admin_restaurants_path %> 
+  </div>
+  <div class="form-inline">
+    <div class="form-group">
+      <%= form_for [:admin, @category] do |f| %>
+        <%= f.text_field :name, class: "form-control", placeholder: "New Category" %>
+        <%= f.submit class: "btn btn-default" %>
+          <% if @category.errors.any? %>
+           <%= @category.errors.full_messages.to_sentence%>
+          <% end %>
+      <% end%>
 
-<div>
-  <%= link_to 'Restaurant', admin_restaurants_path %> 
-  <%= link_to 'Categories', admin_categories_path %>
-</div>
-<div class="form-inline">
-  <div class="form-group">
-    <%= form_for [:admin, @category] do |f| %>
-      <%= f.text_field :name, class: "form-control", placeholder: "New Category" %>
-      <%= f.submit class: "btn btn-default" %>
-        <% if @category.errors.any? %>
-          <%= @category.errors.full_messages.to_sentence%>
-        <% end %>
-    <% end%>
+    </div>
 
   </div>
+  <br/>
+  <br/>
 
-</div>
-
-<table class="table table-striped table-hover text-center container_table">
-  <tr>
-    <td>#</td>
-    <td>Category</td>
-    <td>Edit</td>
-    <td>Delete</td>
-  </tr>
-  <% i = 1 %>
-  <% @categories.each do |category| %>
-    
+  <table class="table table-striped table-hover text-center container_table">
     <tr>
-      <td><%= i %></td>
-      <td><%= category.name %></td>
-      <td><%= link_to "Edit", admin_categories_path(id: category.id)%>
-      <td><%= link_to 'Delete', admin_category_path(category), method: :delete, data: { confirm: "Are you sure?"} %></td> 
-      <% i += 1 %>
+      <td>#</td>
+      <td>Category</td>
+      <td>Edit</td>
+      <td>Delete</td>
     </tr>
+    <% i = 1 %>
+    <% @categories.each do |category| %>
+    
+      <tr>
+        <td><%= i %></td>
+        <td><%= category.name %></td>
+        <td><%= link_to "Edit", admin_categories_path(id: category.id)%>
+        <td><%= link_to 'Delete', admin_category_path(category), method: :delete, data: { confirm: "Are you sure?"} %></td> 
+        <% i += 1 %>
+      </tr>
 
-  <%  end %>
-</table>
+    <%  end %>
+  </table>
+</div>
