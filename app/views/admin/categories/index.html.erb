@@ -23,12 +23,14 @@
     <td>#</td>
     <td>Category</td>
     <td>Edit</td>
+    <td>Delete</td>
   </tr>
   <% @categories.each do |category| %>
   <tr>
     <td><%= category.id  %></td>
     <td><%= category.name %></td>
-    <td><%= link_to "Edit", admin_categories_path(id: category.id) %>
+    <td><%= link_to "Edit", admin_categories_path(id: category.id)%>
+    <td><%= link_to 'Delete', admin_category_path(category), method: :delete, data: { confirm: "Are you sure?"} %></td> 
   </tr>
 
 <% end %>
