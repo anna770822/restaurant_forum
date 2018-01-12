@@ -12,7 +12,9 @@
           <td class="container_table_cell">
               <%= i %>
           </td>
-
+          <td class="container_table_cell">
+              <%= restaurant.category.name %>
+          </td>
           <td><%= image_tag restaurant.image, class: "img-thumbnail",width: "150px" %></td>
 
           <td class="container_table_cell"><%= restaurant.name.capitalize %></td>
