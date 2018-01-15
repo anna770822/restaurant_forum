@@ -1,14 +1,16 @@
 <div class="container">
   <div class="row">
+ 
     <ul class="nav nav-pills nav-center">
  
-      <li role="presentation">
+      <li role="presentation" >
         <%= link_to "All Category", root_path %></li>
       <% @categories.each do |category| %>
         <li role="presentation" class="<%= "active" if category == @category %>"><%= link_to category.name, category_path(category) %></li>
 
       <% end %>
     </ul>
+
     <%= render partial: "shared/restaurant_list" %>
       
     <!-- 有generate kaminari paginate bootstrap style -->
