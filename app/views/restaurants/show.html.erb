@@ -33,6 +33,16 @@
   <br>
 </div>
 <div class="container">
+  <div class="content">
+    <% @restaurant.comments.each do |comment| %>
+      <h4><%= comment.user.email.split("@").first%></h4>
+      <p><%= simple_format comment.content %>
+        <em><%= time_ago_in_words(comment.created_at) %></em></p>
+    <% end %>
+
+  </div>
+</div>
+<div class="container">
   <div class="row">
    <%= form_for [ @restaurant, @comment ] do |f| %>
     <div class="form-group">
