@@ -1,0 +1,37 @@
+<div class="container clearfix">
+  <h3><%= @restaurant.category.name%></h3>
+  <div class="content">
+
+          <%= image_tag @restaurant.image,class:"img-thumbnail" %>
+    
+   
+        <h3><%= @restaurant.name %></h3>
+        <table class="table">
+          <tr>
+            <td>
+              TEL : <%= @restaurant.tel %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            Address : <%= @restaurant.address %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Opening Hours : <%= @restaurant.opening_hours %>
+            </td>
+          </tr>
+        </table>
+  </div>
+  <div class="content">
+    <div class="well well-lg restaurant-description">
+      <%= @restaurant.description %>
+    </div>
+  </div>
+  <br>
+  <br>
+</div>
+<div class="edit-btn">
+    <button type="button" class="btn btn-default"><%= link_to "Back to Index",restaurants_path %></button>
+</div>
