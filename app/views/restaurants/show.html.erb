@@ -37,7 +37,12 @@
     <% @restaurant.comments.each do |comment| %>
       <h4><%= comment.user.email.split("@").first%></h4>
       <p><%= simple_format comment.content %>
-        <em><%= time_ago_in_words(comment.created_at) %></em></p>
+        <em><%= time_ago_in_words(comment.created_at) %></em>
+          <% if current_user.admin? %>
+            <%= link_to "Delete",restaurant_comment_path(@restaurant, comment), method: :delete, data:{confirm:'Are you sure?'} %>
+          <%end%>
+        </p>
+      
     <% end %>
 
   </div>
