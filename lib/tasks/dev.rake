@@ -12,16 +12,17 @@ namespace :dev do
   end
 
   task :fake_user => :environment do
-
+    User.destroy_all
     20.times do |i|
-      User.create!(email: FFaker::Internet.disposable_email, password: FFaker::IdentificationMX.curp)
+      user_name = FFaker::Name.first_name
+      User.create!(email: "#{user_name}@example.com", password: FFaker::IdentificationMX.curp, name: user_name )
     end
     puts "fake user has been create"
     puts "there were #{User.count} users"
 
   end
   task :fake_comment => :environment do
-
+    Comment.destroy_all
     Restaurant.all.each do |restaurant|
       3.times do |i|
         restaurant.comments.create!(content: FFaker::HipsterIpsum.paragraph, user: User.all.sample )
