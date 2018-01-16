@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :comments
+
+  mount_uploader :avatar, PhotoUploader
   def admin?
     self.role == "admin"
   end
