@@ -1,18 +1,18 @@
-<div class="container">
-  <div class="row">
-    <div class="profile">
-      <div class="avatar">
-         <%= image_tag @user.avatar %>
-      </div>
-    </div>
-    <div class="profile">
-      <ul>
-        <li><%= @user.name %></li>
-        <li><%= @user.intro %></li>
-      </ul>
-    </div>
-    <div>
-      <%= link_to "Edit", edit_user_path %>
-    </div>
+
+<div class="container clearfix">
+  
+  <div class="content">
+    <%= image_tag @user.avatar,class:"img-thumbnail",width: "500px" %>   
   </div>
+  <div class="content">
+      <h3><%= @user.name %></h3>
+      <p><%= @user.email %></p>
+      <p><%= @user.intro %></p>
+      <% if @user.email == current_user.email %>
+        <button type="button" class="btn btn-default"><%= link_to "Edit", edit_user_path %></button>
+      <% end %>
+
+  </div>
+  <br>
+  <br>
 </div>
