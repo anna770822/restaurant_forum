@@ -10,5 +10,9 @@ class User < ApplicationRecord
   def admin?
     self.role == "admin"
   end
-  
+
+  include Gravtastic
+  gravtastic
+
+
 end

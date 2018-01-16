@@ -25,6 +25,7 @@
         <div class="collapse navbar-collapse id="bs-example-navbar-collapse-1">
           <ul class="pull-right text-right nav navbar-nav">  
             <% if current_user %>
+            <li><span class="user-gravatar"><%= image_tag current_user.gravatar_url,width:"45px"%></span></li>
             <li><p class="navbar-text"><%= current_user.email %></p></li>
               <% if current_user.admin? %>
                 <li><%= link_to('Admin',admin_restaurants_path)%></li>

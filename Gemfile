@@ -42,6 +42,8 @@ gem 'bootstrap-sass', '~> 3.3.7'
 
 gem 'jquery-rails'
 
+gem 'gravtastic'
+
 group :production do
   gem 'pg', '~> 0.20'
 end
