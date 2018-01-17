@@ -8,30 +8,34 @@
       <div class="col-md-6">
         <div class="panel panel-default">
           <div class="panel-heading">New Restaurants</div>
-          <div class="panel-body">
-           <% @recent_restaurants.each do |restaurant| %>
-            <div class="news-restaurant">
-              <%= link_to(image_tag(restaurant.image), restaurant_path(restaurant), class: "img-responsive ") %>
+            <div class="panel-body">
+             <% @recent_restaurants.each do |restaurant| %>
+             <div class="news-content">
+               <div class="news-restaurant">
+                <%= link_to(image_tag(restaurant.image), restaurant_path(restaurant), class: "img-responsive ") %>
+               </div>
+                <h4><%= restaurant.name %></h4>
+                <p><%= restaurant.description %></p>
+                <p><%= time_ago_in_words(restaurant.created_at)%></p> 
+             </div>
+                <%end %>
             </div>
-            <h4><%= restaurant.name %></h4>
-            <p><%= restaurant.description %></p>
-            <p><%= time_ago_in_words(restaurant.created_at)%></p>  
-           <%end %>
-          </div>
           </div>
         </div>
  
        <div class="col-md-6">
          <div class="panel panel-default">
           <div class="panel-heading">Latest Commment</div>
-           <div class="panel-body">
+            <div class="panel-body">
+             
              <% @recent_comments.each do |comment| %>
-               <div class="news-comment" >
+               <div class="news-content" >
                  <p><%= link_to comment.content,restaurant_path(comment.restaurant) %><p>
                 <h4><%= comment.restaurant.name %></h4>
-                <p><%= time_ago_in_words(comment.created_at)%></p>
+                <p><%= time_ago_in_words(comment.created_at)%><span> by <%=comment.user.name%></p>
               </div>
              <%end %>
+
            </div>
          </div>
        </div>

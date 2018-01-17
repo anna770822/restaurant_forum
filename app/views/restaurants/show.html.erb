@@ -5,7 +5,8 @@
           <%= image_tag @restaurant.image,class:"img-thumbnail" %>
     
    
-        <h3><%= @restaurant.name %></h3>
+        <h3><%= @restaurant.name %>  <%= link_to "Dashboard", dashboard_restaurant_path(@restaurant), class: "btn btn-default"%></h3>
+
         <table class="table">
           <tr>
             <td>
@@ -36,7 +37,8 @@
   <div class="content">
     <% @restaurant.comments.each do |comment| %>
       <h4><%= image_tag comment.user.gravatar_url,width:"40px"%> <%= comment.user.name%></h4>
-     
+
+    
       <p><%= simple_format comment.content %>
         <em><%= time_ago_in_words(comment.created_at) %></em>
           <% if current_user.admin? %>
@@ -45,7 +47,7 @@
         </p>
       
     <% end %>
-
+      
   </div>
 </div>
 <div class="container">
