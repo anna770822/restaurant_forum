@@ -51,6 +51,10 @@
       <% elsif flash[:alert] %>
       <div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><%= alert %></div>
       <% end %>
+      <ul class="nav nav-tabs news-feed">
+      <li class="active"><%= link_to "Home", restaurants_path %></li>
+      <li><%= link_to "News Feed", feeds_restaurants_path %></li>
+    </ul>
       <%= yield %>
     </div>
   </body>
