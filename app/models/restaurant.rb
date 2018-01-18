@@ -4,7 +4,11 @@ class Restaurant < ApplicationRecord
   
   belongs_to :category, :optional => true
   has_many :comments, dependent: :destroy
+
   has_many :favorites, dependent: :destroy
   has_many :favorited_user, through: :favorites, source: :user
+
+  has_many :likes, dependent: :destroy
+  has_many :liked_user, through: :likes, source: :user
 
 end
