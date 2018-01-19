@@ -1,5 +1,5 @@
 class Restaurant < ApplicationRecord
-  validates_presence_of :name, :tel, :address, :opening_hours, :description
+  validates_presence_of :name, :tel, :address, :opening_hours, :description, :favorites_count
   mount_uploader :image, PhotoUploader
   
   belongs_to :category, :optional => true
@@ -18,5 +18,10 @@ class Restaurant < ApplicationRecord
   def is_liked?(user)
     self.liked_user.include?(user)
   end
+  
 
+  def count_favorites
+    self.favorites_count = self.favorites.size
+    self.save
+  end
 end
