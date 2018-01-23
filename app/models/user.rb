@@ -15,12 +15,15 @@ class User < ApplicationRecord
   has_many :liked_restaurants, through: :likes, source: :restaurant
  
   has_many :followships, dependent: :destroy
-  has_many :followings, through: :followhsips
-
+  has_many :followings, through: :followships
 
   mount_uploader :avatar, AvatarUploader 
   def admin?
     self.role == "admin"
+  end
+
+  def following?(user)
+    self.followings.include?(user)
   end
 
   include Gravtastic
