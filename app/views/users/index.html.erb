@@ -1,9 +1,18 @@
-<% @users.each do |user| %>
-  <ul>
-    <li><%= user.name %>
-        <%= link_to "Follow", followships_path(following_id: user), method: :post %>
-        <%= link_to "Unfollow", followship_path(user), method: :delete %>
-    
-    </li>
-  </ul>
-<% end %> 
+<div class="container">
+  <div class="row">
+  <%= render partial: "shared/navbar" %>
+  <h1>Foddies</h1>
+
+  <% @users.each do |user| %>
+    <div class="col-md-3 col-sm-4 col-xs-6 text-center user-item">
+      
+      <%= link_to user_path(user) do %>
+        <%= image_tag(user.avatar, class: "img-rounded") %>
+        <h4><%= user.name %></h4>
+      <% end %>
+
+      <%= render partial: "shared/follow", locals: {user: user} %>
+    </div>
+  <% end %>
+  </div> 
+</div>
