@@ -51,18 +51,19 @@
     <% end %>
   </div>
 </div>
+
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title"><strong><%= @user.followings.count %></strong> Followings</h3>
+    <h3 class="panel-title"><strong><%= @user.followers.count %></strong> Followers</h3>
   </div>
   <div class="panel-body">
-    <% @user.followings.each do |user| %>
-      <%= link_to user_path(user) do %>
+    <% @user.followers.each do |follower| %>
+      <%= link_to user_path(follower) do %>
       <div class="my-restaurant">
         <div>
-          <%= image_tag user.avatar, class: "img-rounded" %>
+          <%= image_tag follower.avatar, class: "img-rounded" %>
         </div>
-        <h5><%= user.name %></h5>
+        <h5><%= follower.name %></h5>
       </div>
       <% end %>
  
