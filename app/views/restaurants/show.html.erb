@@ -1,4 +1,5 @@
 <div class="container clearfix">
+      <%= social_share_button_tag('Share to Facebook', :url => restaurent_path(@restaurant), desc: @restaurant.name) %>
   <h3><%= @restaurant.category.name%></h3>
   <div class="content">
 
