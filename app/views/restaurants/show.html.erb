@@ -1,5 +1,4 @@
 <div class="container clearfix">
-      <%= social_share_button_tag('Share to Facebook', :url => restaurent_path(@restaurant), desc: @restaurant.name) %>
   <h3><%= @restaurant.category.name%></h3>
   <div class="content">
 
@@ -10,7 +9,7 @@
           <%= link_to "Dashboard", dashboard_restaurant_path(@restaurant), class: "btn btn-default"%>
           <%= render partial: "shared/favorite", locals:{restaurant: @restaurant}%>
           <%= render partial: "shared/like", locals: {restaurant: @restaurant}%>
-         
+          <%= social_share_button_tag('Facebook Share', :url => 'user_url(@user)', desc: 'Share') %>
         </h3>
 
         <table class="table">
